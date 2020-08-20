@@ -1,5 +1,6 @@
 package model
 
+import java.lang.Integer.max
 import java.lang.Integer.min
 
 /*
@@ -11,7 +12,13 @@ fun String.tokenizePath(): List<String> {
     return this.split('/')
 }
 
-fun computeLCP(newReviewFile: String, oldReviewFile: String): Int {
+
+
+fun computeLCPostfixScore(newReviewFile: String, oldReviewFile: String): Float {
+    return (computeLCPostfixLength(newReviewFile, oldReviewFile).toFloat()/max(newReviewFile.length, oldReviewFile.length))
+}
+
+fun computeLCPostfixLength(newReviewFile: String, oldReviewFile: String): Int {
     val newRevTokens = newReviewFile.tokenizePath()
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
@@ -26,7 +33,11 @@ fun computeLCP(newReviewFile: String, oldReviewFile: String): Int {
     return commonPathLength
 }
 
-fun computeLCSuff(newReviewFile: String, oldReviewFile: String): Int {
+fun computeLCSuffixScore(newReviewFile: String, oldReviewFile: String): Float {
+    return (computeLCSuffixLength(newReviewFile, oldReviewFile).toFloat()/max(newReviewFile.length, oldReviewFile.length))
+}
+
+fun computeLCSuffixLength(newReviewFile: String, oldReviewFile: String): Int {
     val newRevTokens = newReviewFile.tokenizePath()
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
@@ -41,7 +52,11 @@ fun computeLCSuff(newReviewFile: String, oldReviewFile: String): Int {
     return commonPathLength
 }
 
-fun computeLCSub(newReviewFile: String, oldReviewFile: String): Int {
+fun computeLCSubstringScore(newReviewFile: String, oldReviewFile: String): Float {
+    return (computeLCSubstringLength(newReviewFile, oldReviewFile).toFloat()/max(newReviewFile.length, oldReviewFile.length))
+}
+
+fun computeLCSubstringLength(newReviewFile: String, oldReviewFile: String): Int {
     val newRevTokens = newReviewFile.tokenizePath()
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
@@ -64,7 +79,11 @@ fun computeLCSub(newReviewFile: String, oldReviewFile: String): Int {
     return commonPathLength
 }
 
-fun computeLCSubSeq(newReviewFile: String, oldReviewFile: String): Int {
+fun computeLCSubsequenceScore(newReviewFile: String, oldReviewFile: String): Float {
+    return (computeLCSubsequenceLength(newReviewFile, oldReviewFile).toFloat()/max(newReviewFile.length, oldReviewFile.length))
+}
+
+fun computeLCSubsequenceLength(newReviewFile: String, oldReviewFile: String): Int {
     val newRevTokens = newReviewFile.tokenizePath()
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
