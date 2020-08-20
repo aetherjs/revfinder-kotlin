@@ -19,4 +19,12 @@ data class Review(
     val files: List<String>
 )
 
-data class Reviewer(val userID: String, val score: Int)
+fun Review.getReviewers(): List<String> {
+    val reviewers = mutableListOf<String>()
+    for (approval in this.approveHistory) {
+        reviewers.add(approval.userID)
+    }
+    return reviewers
+}
+
+data class Reviewer(val userID: String, var score: Float)
