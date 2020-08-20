@@ -1,7 +1,11 @@
 package model
 
 import java.lang.Integer.min
-import java.lang.Math.max
+
+/*
+A collection of functions computing file path similarity scores in different ways.
+Reimplemented in Kotlin following: https://github.com/patanamon/revfinder/blob/master/stringCompare.py
+ */
 
 fun String.tokenizePath(): List<String> {
     return this.split('/')
