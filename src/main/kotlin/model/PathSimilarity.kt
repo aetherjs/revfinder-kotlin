@@ -42,9 +42,9 @@ fun computeLCSub(newReviewFile: String, oldReviewFile: String): Int {
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
     if ((newRevTokens.toSet() intersect oldRevTokens.toSet()).isNotEmpty()) {
-        val matrix = Array(newRevTokens.size + 1) {IntArray(oldRevTokens.size + 1)}
-        for (i in 0..oldRevTokens.size + 1) {
-            for (j in 0..newRevTokens.size + 1) {
+        val matrix = Array(oldRevTokens.size) {Array(newRevTokens.size) {0}}
+        for (i in oldRevTokens.indices) {
+            for (j in newRevTokens.indices) {
                 if (i == 0 || j == 0) {
                     matrix[i][j] = 0
                 } else if (oldRevTokens[i-1] == newRevTokens[j-1]) {
@@ -65,9 +65,9 @@ fun computeLCSubSeq(newReviewFile: String, oldReviewFile: String): Int {
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
     if ((newRevTokens.toSet() intersect oldRevTokens.toSet()).isNotEmpty()) {
-        val matrix = Array(newRevTokens.size + 1) {IntArray(oldRevTokens.size + 1)}
-        for (i in 0..oldRevTokens.size + 1) {
-            for (j in 0..newRevTokens.size + 1) {
+        val matrix = Array(oldRevTokens.size) {Array(newRevTokens.size) {0}}
+        for (i in oldRevTokens.indices) {
+            for (j in newRevTokens.indices) {
                 if (i == 0 || j == 0) {
                     matrix[i][j] = 0
                 }
