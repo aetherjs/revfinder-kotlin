@@ -1,5 +1,6 @@
 import model.computeLCP
 import model.computeLCSub
+import model.computeLCSubSeq
 import model.computeLCSuff
 import org.junit.Assert
 import org.junit.Test
@@ -27,5 +28,13 @@ class PathSimilarityMetricsTest {
         val testPath2 = "tests/res/layout/operator_main.xml"
         val LCSubString = computeLCSub(testPath1, testPath2)
         Assert.assertEquals("Longest Common Substring's length of two path strings must equal 2", 2, LCSubString)
+    }
+
+    @Test
+    fun `Compute Longest Common Subsequence Test`() {
+        val testPath1 = "apps/CtsVerifier/src/com/android/cts/verifier/sensors/MagnetometerTestActivity.java"
+        val testPath2 = "tests/tests/hardware/src/android/hardware/cts/SensorTest.java"
+        val LCSubSeq = computeLCSubSeq(testPath1, testPath2)
+        Assert.assertEquals("Longest Common Subsequence's length of two path strings must equal 3", 3, LCSubSeq)
     }
 }
