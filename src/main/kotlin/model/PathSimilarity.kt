@@ -78,7 +78,7 @@ fun computeLCSubSeq(newReviewFile: String, oldReviewFile: String): Int {
                 }
             }
         }
-        commonPathLength = matrix[oldRevTokens.size][newRevTokens.size]
+        commonPathLength = matrix[oldRevTokens.size - 1][newRevTokens.size - 1]
     }
     return  commonPathLength
 }
