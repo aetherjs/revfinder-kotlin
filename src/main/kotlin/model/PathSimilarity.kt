@@ -12,7 +12,7 @@ fun computeLCP(newReviewFile: String, oldReviewFile: String): Int {
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
     val minLength = min(newRevTokens.size, oldRevTokens.size)
-    for (i in 0..minLength) {
+    for (i in 0 until minLength) {
         if (newRevTokens[i] == oldRevTokens[i]) {
             commonPathLength += 1
         } else {
@@ -27,7 +27,7 @@ fun computeLCSuff(newReviewFile: String, oldReviewFile: String): Int {
     val oldRevTokens = oldReviewFile.tokenizePath()
     var commonPathLength = 0
     val minLength = min(newRevTokens.size, oldRevTokens.size)
-    for (i in minLength..0) {
+    for (i in (minLength - 1) downTo 0) {
         if (newRevTokens[i] == oldRevTokens[i]) {
             commonPathLength += 1
         } else {
